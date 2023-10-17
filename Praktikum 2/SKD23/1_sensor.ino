@@ -1,7 +1,6 @@
 #define PinTachometer A0
 #define PinPotensiometer A1
 
-int MaxTachometer = 700;
 
 void sensor_setup() {
   pinMode(PinTachometer, INPUT);

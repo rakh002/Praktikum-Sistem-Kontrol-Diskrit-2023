@@ -4,7 +4,7 @@
 #define PinIn1 10
 #define PinIn2 9
 
-int Direction, LastDirection = 0;
+//int Direction, LastDirection = 0;
 Adafruit_MCP4725 DAC;
 
 void actuator_setup() {
