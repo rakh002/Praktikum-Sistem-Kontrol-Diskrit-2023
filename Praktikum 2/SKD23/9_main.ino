@@ -32,26 +32,26 @@ void loop() {
     Motor = deadzoneCompensator(Motor);
     run_motor(Motor);
     
-    /*Serial.print(Time - StartTime - TimeSampling);
+    Serial.print(Time - StartTime - TimeSampling);
     Serial.print("\t");
-    Serial.print(DeltaTime);
-    Serial.print("\t");*/
+//    Serial.print(DeltaTime);
+//    Serial.print("\t");
     Serial.print(InputSerial);
     Serial.print("\t");
-    Serial.print(mv);
-    Serial.print("\t");
+//    Serial.print(mv);
+//    Serial.print("\t");
     Serial.print(Motor);
     Serial.print("\t");
     /*Serial.print(Poten1);
     Serial.print("\t");
     Serial.print(Poten2);*/
-//    Serial.print("\t");
-//    Serial.print(Tacho1);
+//  Serial.print("\t");
+    Serial.print(Tacho1);
     Serial.print("\t");
     Serial.println(Tacho2);
   }
 }
 
 void print_header() {
-  Serial.println("Input\tmv\tMotor\tKec");
+  Serial.println("Time\tInput\tMotor\tKec1\tKec2\t");
 }
