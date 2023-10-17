@@ -1,0 +1,33 @@
+int Poten1, Tacho1;
+float Poten2, Poten3, Tacho2, Tacho3;
+
+void setup() {
+  general_setup();
+  sensor_setup();
+  print_header();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Poten1 = analogRead(PinPotensiometer);
+  Poten2 = sample_position_percentage();
+  Poten3 = smooth_position_percentage();
+  Tacho1 = analogRead(PinTachometer);
+  Tacho2 = sample_velocity_percentage();
+  Tacho3 = smooth_velocity_percentage();
+  Serial.print(Poten1);
+  Serial.print("\t");
+  Serial.print(Poten2);
+  Serial.print("\t");
+  Serial.print(Poten3);
+  Serial.print("\t");
+  Serial.print(Tacho1);
+  Serial.print("\t");
+  Serial.print(Tacho2);
+  Serial.print("\t");
+  Serial.println(Tacho3);
+}
+
+void print_header() {
+  Serial.println("Pos 1\tPos 2\tPos 3\tKec 1\tKec 2\tKec 3");
+}

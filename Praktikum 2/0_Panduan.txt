@@ -1,0 +1,65 @@
+Sebagai tutorial singkat untuk menggunakan kit praktikum SKD, disediakan 
+lima program sederhana.
+Kelima program berikut dapat digunakan secara langsung ke dalam program.
+Cukup ganti program pada tab main dengan salah satu program.
+Upload program untuk memperbaharui program yang tertanam di kit praktikum.
+Program-program ini juga dapat dijadikan sebagai referensi untuk membuat 
+program selama praktikum.
+
+1. akuisisi data
+Program mengakuisisi sensor tachometer dan potensiometer dengan tiga metode.
+Metode pertama mengambil data langsung dari pin sensor, tipe data dalam int
+dengan rentang nilai pembacaan 0-1023.
+Metode kedua mengambil data dari pin sensor, kemudian data dikonversi
+menjadi persen, tipe data dalam float.
+Metode ketiga mengambil beberapa data dari pin sensor, rata-rata data
+dikonversi menjadi persen, tipe data dalam float.
+
+Akuisisi data dapat dilihat pada serial monitor dengan baudrate 115200.
+Program ini dapat digunakan untuk mengecek kondisi sensor posisi
+potensiometer.
+Putar potensiometer secara manual untuk melihat perubahan nilai pembacaan
+posisi.
+Nilai kecepatan (akuisisi tachometer) yang ditunjukkan akan bernilai nol 
+karena motor dalam keadaan diam.
+
+2. time
+Program menambahkan waktu untuk ditampilkan pada serial monitor.
+Time - StartTime menunjukkan lama waktu terhitung program memasuki loop 
+pertama kali dalam satuan milidetik.
+DeltaTime menunjukkan lama waktu eksekusi satu loop program dalam satuan 
+milidetik.
+Perhatikan bahwa variabel berkaitan dengan millis() dideklarasi menggunakan
+tipe data unsigned long.
+Variabel berkaitan dengan waktu cacah dapat dideklarasi menggunakan tipe
+data unsigned int.
+
+3. delay
+Program menunjukkan efek penambahan delay terhadap lama waktu eksekusi satu 
+loop program.
+
+4. time sampling
+Program menunjukkan cara melakukan pencacahan waktu lebih akurat dari pada
+menggunakan delay.
+
+5. motor
+Program menunjukkan cara memberikan masukan pada serial monitor untuk 
+menentukan nilai masukan motor.
+Pilih metode pengiriman serial Newline untuk pengiriman yang optimal.
+Masukan motor dapat diberikan dengan tipe data float dalam rentang nilai
+-100.0 sampai 100.0.
+Motor tidak akan berputar bila menerima masukan nilai kecil.
+Tachometer tidak akan dapat mendeteksi kecepatan putar motor apabila motor
+berputar sangat pelan.
+Fungsi run_motor sebaiknya dijalankan dalam selang waktu cacah.
+Memanggil fungsi run_motor dalam loop tanpa selang waktu cacah akan
+memperbesar kemungkinan kerusakan pada kit praktikum.
+
+Catatan tambahan :
+Kit praktikum sangat rentan terhadap kerusakan apabila main loop program
+tidak bekerja sesuai dengan keinginan.
+Untuk mencegah kerusakan kit praktikum, pastikan program berjalan sesuai
+keinginan dengan cara mengamati Serial Monitor.
+Ketika memastikan program, kit praktikum dapat dilepaskan dari sumber 
+listrik, alternatif lainnya adalah melepas transistor, sehingga motor
+tidak akan berputar walaupun telah diberikan masukan.
