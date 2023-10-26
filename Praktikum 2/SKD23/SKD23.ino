@@ -3,7 +3,7 @@ void general_setup() {
 }
 
 unsigned long Time, StartTime, LastTime, LastTimeSampling, LastTimeInput;
-unsigned long TimeSampling = 10, DeltaTime;
+unsigned long TimeSampling = 30, DeltaTime;
 unsigned long WaktuInput = 3000;
 long InputSerial = 0, InputCompensated;
 float Motor = 0.0;

@@ -16,6 +16,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  
   InputSerial = serial(InputSerial);
   Time = millis();
   if (Time - LastTime >= TimeSampling) {
