@@ -45,6 +45,36 @@ td = 0.5*tdlay;
 ki = kp/ti;
 kd = kp*td;
 
+% P - Ziegler Nichols
+%kp = 1*tau/gain/tdlay;
+%ti = 999999999999999999999999999999999999;
+%td = 0;
+
+% PI - Ziegler Nichols
+%kp = 0.9*tau/gain/tdlay;
+%ti = tdlay/0.3;
+%td = 0;
+
+% PID - Ziegler Nichols
+%kp = 1.2*tau/gain/tdlay;
+%ti = 2*tdlay;
+%td = 0.5*tdlay;
+
+% P - Cohen Coon
+%kp = tau*(1+tdlay/(3*tau))/gain/tdlay;
+%ti = 999999999999999999999999999999999999;
+%td = 0;
+
+% PI - Cohen Coon
+%kp = tau*(0.9+tdlay/(12*tau))/gain/tdlay; 
+%ti = tdlay*(30+3*(tdlay/tau))/(9+20*(tdlay/tau));
+%td = 0;
+ 
+% PID - Cohen Coon
+%kp = tau*(4/3+tdlay/(4*tau))/gain/tdlay; 
+%ti = tdlay*(32+6*(tdlay/tau))/(13+8*(tdlay/tau));
+%td = tdlay*4/(11+2*(tdlay/tau));
+
 sampling = true;
 t_dis_ol = [];
 iu_dis_ol = [];
@@ -121,7 +151,7 @@ hold off
 plot([t_con_ol(1) t_con_ol(end)],[sp sp],'r-.')
 hold on
 plot(t_con_cl,v_con_cl,'g--')
-stairs(t_dis_cl,vm_dis_cl,'g-')
+stairs(t_dis_cl,vm_dis_cl,'g-') 
 stairs(t_dis_cl,imv_dis_cl,'m-')
 plot(t_con_cl,dmv_con_cl,'c--')
 legend('set point','output','output measured','input','delayed input')
