@@ -102,7 +102,7 @@ for t=0:tr:te
 
     du = delay(iu,t,tr,tdlay);
     v = first_order_process(tr,v,du,gain,tau);
-    x = integrate(ts,v,x);
+    x = integrate(ts,x,v,du,gain,tau);
     [vm,sampling] = a2d(t,ts,x);
 
     t_con_ol(end+1) = t;
@@ -137,7 +137,7 @@ for t=0:tr:te
 
     dmv = delay(imv,t,tr,tdlay);
     v = first_order_process(tr,v,dmv,gain,tau);
-    x = integrate(ts,v,x);
+    x = integrate(ts,x,v,dmv,gain,tau);
     [vm,sampling] = a2d(t,ts,x);
 
     t_con_cl(end+1) = t;
