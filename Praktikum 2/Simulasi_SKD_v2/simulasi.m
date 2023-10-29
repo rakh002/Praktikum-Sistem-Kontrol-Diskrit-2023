@@ -26,19 +26,17 @@ clc, clear control delay a2d, warning off
 % ti    : time integral (second or millisecond)
 % td    : time derivative (second or millisecond)
 
-
 %% nilai awal
 tr = 1;
 te = 1000;
 v = 0;
-x=0;
 vm = 0;
 imv = 0;
 sp = 75;
 u = sp;
-tdlay = 42.453;
-gain = 0.00011;
-tau = 65.736;
+tdlay = 37;
+gain = 0.0001;
+tau = 54;
 ts = 10;
 %kp = 1674; % 1.2*tau/gain/tdlay; 
 %ti = 1000000000000000000000000000000000000; %2*tdlay;
@@ -46,39 +44,39 @@ ts = 10;
 % ki = kp/ti;
 % kd = kp*td;
 
-% Controller Design : Ziegler Nichols FOPDT
-Type = 4; % 1:P, 2:PI, 3:PID, otherwise:Your Parameter Control
-switch Type
-    case 1
-        % Proportional Controller
-        kp = tau/gain/tdlay;
-        ti = 10000000000000000000000000000000000;
-        td = 0;
-        ki = 0;
-        kd = kp*td;
-    case 2
-        % Proportional–Integral Controller
-        kp = 0.9*tau/gain/tdlay
-        ti = tdlay/0.3
-        ki = kp/ti
-        td = 0;
-        kd = 0;
-    case 3
-        % Proportional–Integral–Derivative Controller
-        kp = 1.2*tau/gain/tdlay
-        ti = 2*tdlay
-        td = 0.5*tdlay
-        ki = kp/ti
-        kd = kp*td
-    otherwise
-        % Custom Control Parameter
-        kp = 1;
-        ti = 1000000000000000000;
-        ki = kp/ti;
-        td = 0.1;
-        ki = 0;
-        kd = 0.1;
-end
+% % Controller Design : Ziegler Nichols FOPDT
+% Type = 4; % 1:P, 2:PI, 3:PID, otherwise:Your Parameter Control
+% switch Type
+%     case 1
+%         % Proportional Controller
+%         kp = tau/gain/tdlay;
+%         ti = 10000000000000000000000000000000000;
+%         td = 0;
+%         ki = 0;
+%         kd = kp*td;
+%     case 2
+%         % Proportional–Integral Controller
+%         kp = 0.9*tau/gain/tdlay
+%         ti = tdlay/0.3
+%         ki = kp/ti
+%         td = 0;
+%         kd = 0;
+%     case 3
+%         % Proportional–Integral–Derivative Controller
+%         kp = 1.2*tau/gain/tdlay
+%         ti = 2*tdlay
+%         td = 0.5*tdlay
+%         ki = kp/ti
+%         kd = kp*td
+%     otherwise
+%         % Custom Control Parameter
+%         kp = 1;
+%         ti = 1000000000000000000;
+%         ki = kp/ti;
+%         td = 0.1;
+%         ki = 0;
+%         kd = 0.1;
+% end
 
 sampling = true;
 t_dis_ol = [];
