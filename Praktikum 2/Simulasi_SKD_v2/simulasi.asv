@@ -127,8 +127,8 @@ vm_dis_cl = [];
 xm_dis_cl = [];
 t_con_cl = [];
 dmv_con_cl = [];
-v_con_cl = [];
-x_con_cl = [];
+v_con_ol = [];
+x_con_ol = [];
 
 %% closed loop
 for t=0:tr:te
