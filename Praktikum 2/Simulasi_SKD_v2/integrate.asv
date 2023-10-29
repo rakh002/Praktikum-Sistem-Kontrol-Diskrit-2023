@@ -1,0 +1,8 @@
+function x = position(ts,v,xpast)
+    conversion_factor = 0.001;
+    v = 
+    x = xpast + v*ts;
+    if x > 100
+        x = x-100;
+    end
+end
