@@ -28,7 +28,7 @@ void loop() {
     Tacho1 = sample_velocity_percentage();
     Tacho2 = smooth_velocity_percentage();
 
-    mv = pidControl(InputSerial, Tacho2);
+    mv = pidControl(InputSerial, Poten2);
     Motor = constrain(mv, -100,100);
     Motor = deadzoneCompensator(Motor);
     run_motor(Motor);
