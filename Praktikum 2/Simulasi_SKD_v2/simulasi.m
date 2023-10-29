@@ -37,7 +37,7 @@ imv = 0;
 sp = 75;
 u = sp;
 tdlay = 42.453;
-gain = 0.925;
+gain = 0.00011;
 tau = 65.736;
 ts = 10;
 %kp = 1674; % 1.2*tau/gain/tdlay; 
@@ -148,7 +148,7 @@ end
 %% Grafik
 figure(2)
 hold off
-plot([t_con_ol(1) t_con_ol(end)],[u u],'r-.')
+plot([t_con_ol(1) t_con_ol(end)],[sp sp],'r-.')
 hold on
 plot(t_con_ol,v_con_ol,'b--')
 plot(t_con_cl,v_con_cl,'g--')
