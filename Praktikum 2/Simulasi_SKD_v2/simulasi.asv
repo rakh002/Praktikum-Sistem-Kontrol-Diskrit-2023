@@ -49,7 +49,7 @@ ts = 10;
 % kd = kp*td;
 
 % Controller Design : Ziegler Nichols FOPDT
-Type = 2; % 1:P, 2:PI, 3:PID, otherwise:Your Parameter Control
+Type = 4; % 1:P, 2:PI, 3:PID, otherwise:Your Parameter Control
 switch Type
     case 1
         % Proportional Controller
@@ -183,7 +183,7 @@ x_con_cl = [];
 %% closed loop
 for t=0:tr:te
     if sampling
-        mv = control(sp,xm,kp,ti,td,ts);
+        mv = control(sp,vm,kp,ti,td,ts);
         imv = d2a(mv);
         t_dis_cl(end+1) = t;
         mv_dis_cl(end+1) = mv;

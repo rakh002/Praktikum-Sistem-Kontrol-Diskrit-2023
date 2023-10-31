@@ -16,7 +16,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
   InputSerial = serial(InputSerial);
   Time = millis();
   if (Time - LastTime >= TimeSampling) {
@@ -29,30 +28,30 @@ void loop() {
     Tacho2 = smooth_velocity_percentage();
 
     mv = pidControl(InputSerial, Tacho2);
-    Motor = constrain(mv, -100,100);
+    Motor = constrain(mv, 0,100);
     Motor = deadzoneCompensator(Motor);
     run_motor(Motor);
     
-    Serial.print(Time - StartTime - TimeSampling);
+    /*Serial.print(Time - StartTime - TimeSampling);
     Serial.print("\t");
-//    Serial.print(DeltaTime);
-//    Serial.print("\t");
+    Serial.print(DeltaTime);
+    Serial.print("\t");*/
     Serial.print(InputSerial);
-    Serial.print("\t");
-//    Serial.print(mv);
-//    Serial.print("\t");
-    Serial.print(Motor);
-    Serial.print("\t");
+    //Serial.print("\t");
+    //Serial.print(mv);
+    //Serial.print("\t");
+    //Serial.print(Motor);
+    //Serial.print("\t");
     /*Serial.print(Poten1);
     Serial.print("\t");
     Serial.print(Poten2);*/
-//  Serial.print("\t");
-    Serial.print(Tacho1);
+//    Serial.print("\t");
+//    Serial.print(Tacho1);
     Serial.print("\t");
     Serial.println(Tacho2);
   }
 }
 
 void print_header() {
-  Serial.println("Time\tInput\tMotor\tKec1\tKec2\t");
+  Serial.println("Input\tmv\tMotor\tKec");
 }
