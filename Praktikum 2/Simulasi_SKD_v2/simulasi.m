@@ -42,11 +42,45 @@ tdlay = 37;
 gain = 0.8388;
 tau = 54;
 ts = 10;
-kp = 2;
-ti = 10000000000000000000000000000000000000000000000000000;
-td = 0;
-ki = kp/ti;
-kd = kp*td;
+% kp = 2;
+% ti = 10000000000000000000000000000000000000000000000000000;
+% td = 0;
+% ki = kp/ti;
+% kd = kp*td;
+
+% Controller Design : Ziegler Nichols FOPDT
+Type = 2; % 1:P, 2:PI, 3:PID, otherwise:Your Parameter Control
+switch Type
+    case 1
+        % Proportional Controller
+        kp = tau/gain/tdlay;
+        ti = 10000000000000000000000000000000000;
+        td = 0;
+        ki = 0;
+        kd = kp*td;
+    case 2
+        % Proportional–Integral Controller
+        kp = 0.9*tau/gain/tdlay
+        ti = tdlay/0.3
+        ki = kp/ti
+        td = 0;
+        kd = 0;
+    case 3
+        % Proportional–Integral–Derivative Controller
+        kp = 1.2*tau/gain/tdlay
+        ti = 2*tdlay
+        td = 0.5*tdlay
+        ki = kp/ti
+        kd = kp*td
+    otherwise
+        % Custom Control Parameter
+        kp = 1;
+        ti = 1000000000000000000;
+        ki = kp/ti;
+        td = 0.1;
+        ki = 0;
+        kd = 0.1;
+end
 
 sampling = true;
 t_dis_ol = [];
@@ -149,7 +183,7 @@ x_con_cl = [];
 %% closed loop
 for t=0:tr:te
     if sampling
-        mv = control(sp,vm,kp,ti,td,ts);
+        mv = control(sp,xm,kp,ti,td,ts);
         imv = d2a(mv);
         t_dis_cl(end+1) = t;
         mv_dis_cl(end+1) = mv;
